@@ -4,9 +4,13 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 todos = []
 
+@app.get("/")
+def index():
+    return jsonify(message="todo-app deployed on Render")
+
 @app.get("/health")
 def health():
-    return jsonify(status="OK")
+    return jsonify(status="ok")
 
 @app.get("/todos")
 def list_todos():
