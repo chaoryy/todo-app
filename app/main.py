@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -22,4 +23,4 @@ def add_todo():
     return jsonify(todo), 201
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5020)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5020)))
